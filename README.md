@@ -1,1 +1,5 @@
-Integrantes do grupo: João Henrique Costa Moreira; João Victor Souza de Andrade; João Márcio Calazans Britto; Gabriel Vitor Antunes Carvalho;
+Integrantes do grupo: Gabriel Vitor Antunes Carvalho;
+João Henrique Costa Moreira;
+João Márcio Calazans Britto; 
+João Victor Souza de Andrade;
+

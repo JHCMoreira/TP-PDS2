@@ -1,10 +1,10 @@
 **TEMA: Jogo no estilo de Cidade Dorme (também bastante conhecido como Lobisomem ou Máfia) -> https://pt.wikipedia.org/wiki/Cidade_dorme ** 
 
 Integrantes do grupo:  
-> Gabriel Vitor Antunes Carvalho;  
-> João Henrique Costa Moreira;  
-> João Márcio Calazans Britto;  
-> João Victor Souza de Andrade;  
+- Gabriel Vitor Antunes Carvalho;  
+- João Henrique Costa Moreira;  
+- João Márcio Calazans Britto;  
+- João Victor Souza de Andrade;  
 
 **USER STORIES:**
 -  Como jogador, quero chamar meus amigos para jogarmos e nos divertirmos.  

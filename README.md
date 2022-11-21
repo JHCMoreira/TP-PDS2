@@ -8,9 +8,9 @@ Integrantes do grupo:
 - João Victor Souza de Andrade;  
 
 **USER STORIES:**
--  Como jogador, quero chamar meus amigos para jogarmos e nos divertirmos.  
--  O jogo não deve fornecer informações de um jogador para outro jogador, fazendo com que cada jogador saiba apenas o seu papel.  
--  O jogo deve sortear as funções para determinar o objetivo de cada jogador.  
--  Os jogadores podem decidir questões de balanceamento do jogo, personalizando quantos jogadores possuirão cada papel no jogo
--  O jogo deve reservar um momento para que os jogadores discutam e tentem descobrir, esconder ou mesmo revelar seus papéis para os demais jogadores.  
--  Ao final do tempo de discussão, os jogadores deverão realizar uma votação pública para decidir eliminar algum jogador publicamente, com os jogadores podendo se abster em seu voto.  
+-  Como jogador, quero jogar um jogo multiplayer com meus amigos para me divertir junto a eles.  
+-  Como jogador, quero que o jogo possa ser jogado em um único dispositivo, não necessitando de conexão com internet ou vários dispositivos com o mesmo jogo.  
+-  Como jogador, quero que os papéis dos jogadores sejam revelados apenas ao próprio jogador para forçar os jogadores a tentarem descobrir informações sobre os outros.  
+-  Como desenvolvedor do jogo, quero que ele seja capaz de sortear os papéis entre os jogadores para decidir qual o objetivo de cada um.    
+-  Como jogador, quero que haja um momento de discussão durante o jogo para tentar descobrir os papéis dos outros jogadores e introduzir estratégia ao jogo.  
+-  Como jogador, quero que tenham momentos de votação no jogo para realizar a escolha de qual jogador deve ser eliminado de acordo com a suspeita da maioria.  

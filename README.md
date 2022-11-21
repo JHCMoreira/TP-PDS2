@@ -1,4 +1,4 @@
-**TEMA: Jogo no estilo de Cidade Dorme (também bastante conhecido como Lobisomem ou Máfia) -> https://pt.wikipedia.org/wiki/Cidade_dorme ** 
+** TEMA: Jogo no estilo de Cidade Dorme (também bastante conhecido como Lobisomem ou Máfia) -> https://pt.wikipedia.org/wiki/Cidade_dorme ** 
 
 Integrantes do grupo:  
 - Gabriel Vitor Antunes Carvalho;  

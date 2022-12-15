@@ -13,18 +13,9 @@ class Jogador {
     std::string _papel;
 
   public:
-    Jogador(std::string nome, std::string papel) {
-      _nome = nome;
-      _papel = papel;
-    }
-    std::string getNome()
-	{
-			return _nome;
-	}
-    std::string getPapel()
-	{
-			return _papel;
-	}
+    Jogador(std::string nome, std::string papel);
+    std::string getNome();
+    std::string getPapel();
 };
 
 #endif

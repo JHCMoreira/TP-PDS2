@@ -14,6 +14,7 @@ int Pos_Aleatoria;
 bool AssassinoSorteado = false;
 Jogador jogador[6];
 
+    //Inicia preenchimento da lista de jogadores
     for (int i = 0; i < 6;i++)
     {
         std::cout << "Digite o nome do " << i << "º jogador"<<std::endl;
@@ -48,5 +49,5 @@ Jogador jogador[6];
         
         jogador[i].setEstado("Vivo"); //Os participantes começam todos vivos
     }
-    
+    //Finaliza preenchimento lista de jogadores
 }

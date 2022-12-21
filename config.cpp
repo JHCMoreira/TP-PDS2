@@ -20,29 +20,40 @@ Config::Config()
 void Config::run()
 {
 	system("cls");
-	int inputKey;
-	bool isSetJogo = false;
-	while(inputKey != 3)
+	int inputInicial;
+	bool jogoConfigurado = false;
+	while(inputInicial != 3)
 	{
-		cout << "1)Configuracoes do jogo, 2)Iniciar jogo, 3)Sair :";
-		cin >> inputKey;
-		switch(inputKey)
+		cout << "(1) Configuracoes do jogo | (2) Iniciar jogo | (3) Sair : ";
+		cin >> inputInicial;
+		while (cin.fail())
+    	{
+			cin.clear(); // clear input buffer to restore cin to a usable state
+			cin.ignore(INT_MAX, '\n'); // ignore last input
+			cout << "Por favor digite sua escolha novamente."  << endl;
+			cout << "(1) Configuracoes do jogo | (2) Iniciar jogo | (3) Sair :";
+			cin >> inputInicial;
+    	}
+		switch(inputInicial)
 		{
 			case 1:
 				setJogo();
-				isSetJogo = true;
+				jogoConfigurado = true;
+
 			case 2:
-				if(isSetJogo)
+				if(jogoConfigurado)
 				{
-					gameStart();
+					iniciaJogo();
 				}
 				else
 				{
 					cout << "Configure o jogo antes de inicia-lo." << endl;
 				}
 				break;
+
 			case 3:
 				break;
+
 			default:
 				cout << "Por favor digite sua escolha novamente." << endl;
 				break;
@@ -51,74 +62,119 @@ void Config::run()
 }
 void Config::setJogo()
 {
-	setUserList();
-	setJobList();
+	setListaUsuarios();
+	setListaPapeis();
 }
-void Config::gameStart()
-{
-	setJogadorList();
-	showAllJogadorJobCode();
 
-	Jogo game(listaJogadores, numJogadores);
-	game.play();
+void Config::iniciaJogo()
+{
+	setListaJogadores();
+	mostraPapeisJogadores();
+
+	Jogo jogo(listaJogadores, numJogadores);
+	jogo.play();
 }
-void Config::setUserList()
+
+void Config::setListaUsuarios()
 {
 	system("cls");
 	// Define a quantidade de jogadores
 	cout << "Por favor digite o numero de jogadores: ";
 	cin >> numJogadores;
-	userList = new User[numJogadores];
+
+	while ((cin.fail()) || (numJogadores <= 0))
+    {
+		cin.clear(); // clear input buffer to restore cin to a usable state
+		cin.ignore(INT_MAX, '\n'); // ignore last input
+		cout << "Por favor digite um valor valido."  << endl;
+		cout << "Por favor digite o numero de jogadores: ";
+		cin >> numJogadores;
+    }
+
+	listaUsuarios = new Usuario[numJogadores];
 
 	for(int i=0; i<numJogadores; i++)
 	{
 		string nome;
 		cout << "Digite o nome dos jogadores (um por vez): ";
 		cin >> nome;
-		userList[i] = Config::addUser(nome);
+		listaUsuarios[i] = Config::addUsuario(nome);
 	}
 }
-void Config::setJobList()
+
+void Config::setListaPapeis()
 {
 	system("cls");
 	cout << "Numero total de jogadores: " << numJogadores << endl;
-	jobCodeList = new string[numJogadores];
+	listaPapeis = new string[numJogadores];
 
-	int totalJobCnt = 0;
-	int jobCnt;
-	int jobCodeListIndex = 0;
+	int numTotalPapeis = 0;
+	int numPapel;
+	int listaPapeisIndex = 0;
 	for(int i=0; i<numPapeis; i++)
 	{
 		cout << "Numero de " << Papel[i] <<": ";
-		cin >> jobCnt;
-		totalJobCnt += jobCnt;
-		if(totalJobCnt > numJogadores)
+		cin >> numPapel;
+		if(Papel[i] == "LOBISOMEM")
 		{
-			cout << "Valor invalido." << endl;
-			totalJobCnt -= jobCnt;
+			while ((cin.fail()) || (numPapel <= 0) || (numPapel >= numJogadores))
+			{
+				cin.clear(); // clear input buffer to restore cin to a usable state
+				cin.ignore(INT_MAX, '\n'); // ignore last input
+				cout << "A quantidade de lobisomens deve ser maior do que 1 e menor do que a quantidade total de jogadores."  << endl;
+				cout << "Numero de " << Papel[i] <<": ";
+				cin >> numPapel;
+			}
+		}
+
+		else
+		{
+			while ((cin.fail()) || (numPapel < 0))
+			{
+				cin.clear(); // clear input buffer to restore cin to a usable state
+				cin.ignore(INT_MAX, '\n'); // ignore last input
+				cout << "Por favor digite um valor valido."  << endl;
+				cout << "Numero de " << Papel[i] <<": ";
+				cin >> numPapel;
+			}
+		}
+
+		numTotalPapeis += numPapel;
+		if(numTotalPapeis > numJogadores)
+		{
+			cout << "A quantidade de papeis fornecida eh maior do que a quantidade total de jogadores" << endl;
+			numTotalPapeis -= numPapel;
 			i--;
 			continue;
 		}
 
-		for(int j=0; j<jobCnt; j++,jobCodeListIndex++)
+		if(((numJogadores - numTotalPapeis) > 0) && (i == numPapeis-1))
 		{
-			jobCodeList[jobCodeListIndex] = Papel[i];
+			cout << "Eh necessario que a quantidade total fornecida de papeis seja igual ao numero de jogadores." << endl;
+			numTotalPapeis -= numPapel;
+			i--;
+			continue;
+		}
+
+		for(int j=0; j<numPapel; j++,listaPapeisIndex++)
+		{
+			listaPapeis[listaPapeisIndex] = Papel[i];
 		}
 	}
 }
-void Config::setJogadorList()
+void Config::setListaJogadores()
 {
 	// Embaralha a lista de papéis
-	suffleStringArr(jobCodeList, numJogadores);
+	embaralhaArr(listaPapeis, numJogadores);
 	// Cria o objeto jogador
 	listaJogadores = new Jogador[numJogadores];
 	for(int i=0; i<numJogadores; i++)
 	{
-		Jogador jogador(userList[i].nome, jobCodeList[i]);
+		Jogador jogador(listaUsuarios[i].nome, listaPapeis[i]);
 		listaJogadores[i] = jogador;
 	}
 }
-void Config::showAllJogadorJobCode()
+void Config::mostraPapeisJogadores()
 {
 	system("cls");
 	for(int i=0; i<numJogadores; i++)
@@ -126,7 +182,7 @@ void Config::showAllJogadorJobCode()
 		listaJogadores[i].mostrarPapelJogador();
 	}
 }
-void Config::suffleStringArr(string *arr, int size)
+void Config::embaralhaArr(string *arr, int size)
 {
 	srand((unsigned int)time(NULL));
 	string temp;
@@ -134,15 +190,15 @@ void Config::suffleStringArr(string *arr, int size)
 	for(int i=0; i<size; i++)
 	{
 		randIndex = rand() % size;
-		temp = jobCodeList[i];
-		jobCodeList[i] = jobCodeList[randIndex];
-		jobCodeList[randIndex] = temp;
+		temp = listaPapeis[i];
+		listaPapeis[i] = listaPapeis[randIndex];
+		listaPapeis[randIndex] = temp;
 
 	}
 }
-Config::User Config::addUser(string nome)
+Config::Usuario Config::addUsuario(string nome)
 {
-	User user;
-	user.nome = nome;
-	return user;
+	Usuario usuario;
+	usuario.nome = nome;
+	return usuario;
 }

@@ -24,7 +24,6 @@ Integrantes do grupo:
 -  Como jogador, quero que haja um momento de discussão durante o jogo para tentar descobrir os papéis dos outros jogadores e introduzir estratégia ao jogo.  
    -  **Critérios de aceite:**
       - Função que detecta quando todos os jogadores já realizaram sua jogada;  
-      - Desenvolvimento de um timer para o tempo de discussão.  
   
 -  Como jogador, quero que tenham momentos de votação no jogo para realizar a escolha de qual jogador deve ser eliminado de acordo com a suspeita da maioria.  
    -  **Critérios de aceite:**
@@ -34,5 +33,4 @@ Integrantes do grupo:
 -  Como jogador, quero que o jogo termine automaticamente quando os critérios para terminar forem atingidos, determinando também qual foi o grupo vencedor.  
    - **Critérios de aceite:**
      - Detectar ao fim de cada rodada se restam assassinos, caso a resposta seja não, finalizar o jogo e informar que os inocentes ganharam;  
-     - Determinar razão máxima de assassinos para inocentes;
-     - Verificar se a razão de assassinos para inocentes na partida é maior do que a pré-estabelecida, caso a resposta seja sim, finalizar o jogo e informar que os assassinos ganharam.  
+     - Detectar ao fim de cada rodada se restam mias de um inocentes, caso a resposta seja não, finalizar o jogo e informar que os assassinos ganharam;

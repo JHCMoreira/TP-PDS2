@@ -9,7 +9,7 @@ class Config
 		// Número de jogadores
 		int numJogadores;
 		// Declara o usuario/jogador
-		struct User
+		struct Usuario
 		{
 			std::string nome;
 		};
@@ -19,23 +19,23 @@ class Config
 		int numPapeis;
 
 		// Lista de usuários
-		User *userList;
+		Usuario *listaUsuarios;
 		// Lista de papeis
-		std::string *jobCodeList;
+		std::string *listaPapeis;
 		// Lista de jogadores
 		Jogador *listaJogadores;
 
-		User addUser(std::string nome);
-		void suffleStringArr(std::string *arr, int size);
+		Usuario addUsuario(std::string nome);
+		void embaralhaArr(std::string *arr, int size);
 	public:
 		Config();
-		void setUserList();
-		void setJobList();
-		void setJogadorList();
-		void showAllJogadorJobCode();
+		void setListaUsuarios();
+		void setListaPapeis();
+		void setListaJogadores();
+		void mostraPapeisJogadores();
 
 		void run();
 		void setJogo();
-		void gameStart();
+		void iniciaJogo();
 };
 #endif

@@ -18,7 +18,7 @@ Jogo::Jogo(Jogador *listaJogadores, int numJogadores)
 void Jogo::Dia()
 {
 	cout << "Discussao da manha" <<endl;
-	cout << "Aperte enter para votar" <<endl;
+	cout << "Aperte qualquer tecla para entrar na votacao" <<endl;
 	getch();
 	system("cls");
 
@@ -31,16 +31,21 @@ void Jogo::Dia()
 		int voteNum;
 		do
 		{
-			cout << "Numero de jogadores disponíves para voto: ";
+			cout << "Escreva o numero do jogador que deseja votar para ser eliminado.";
 			voteNum = listaJogadores[i].votar() - 1;
-			if(voteNum < numJogadores && voteNum >= 0)
+
+			if((voteNum < numJogadores) && (voteNum >= 0) && (voteNum != i))
 			{
 				isVoteNum = true;
 			}
 			else
 			{
-				cout << "Numero Invalido" << endl;
+				if(voteNum == i)
+					cout << "Voce nao pode votar em si." << endl;
+				else
+					cout << "Escolha invalida (fora das opcoes da lista)." << endl;
 			}
+
 		}while(!isVoteNum);
 		votedCnt[voteNum]++;
 		system("cls");
@@ -74,10 +79,10 @@ void Jogo::Noite()
 {
 	system("cls");
 	cout << "A noite chegou" << endl << endl;
-	cout << "Assassinos devem matar os inocentes" << endl << endl;
-	cout << "Policias investigam jogadores em busca do assassino" <<endl << endl;
-	cout << "O médico escolhe um jogador para proteger" <<endl << endl;
-	cout << "Inocentes voltem a dormir" << endl << endl;
+	cout << "Lobisomens escolhem um jogador para ser atacado" << endl << endl;
+	cout << "Videntes podem descobrir se alguem eh um lobisomem." <<endl << endl;
+	cout << "O medico escolhe um jogador para proteger" <<endl << endl;
+	cout << "Camponeses voltem a dormir" << endl << endl;
 	cout << "Pressione qualquer tecla para seguir em frente" <<endl;
 	getch();
 
@@ -88,45 +93,79 @@ void Jogo::Noite()
 	for(int i=0; i<numJogadores; i++)
 	{
 		system("cls");
-		cout << listaJogadores[i].getNome() << "Pressione qualquer tecla"<< endl;
+		cout << listaJogadores[i].getNome() <<" pressione qualquer tecla"<< endl;
 		getch();
 		string jobCode = listaJogadores[i].getPapel();
-		cout << "Você é: " << jobCode << endl;
+		cout << "Voce eh: " << jobCode << endl;
 		mostraListaVotos();
+
 		if(jobCode == "LOBISOMEM")
 		{
 			cout << "Escolha um jogador para matar" << endl;
 			killJogadorKey = listaJogadores[i].votar() - 1;
+			while ((killJogadorKey == i) || (killJogadorKey + 1 > numJogadores))
+			{
+				cin.clear(); // clear input buffer to restore cin to a usable state
+				cin.ignore(INT_MAX, '\n'); // ignore last input
+
+				if(killJogadorKey == i)
+					cout << "Voce nao pode atacar a si mesmo(a)."  << endl;
+				else if(killJogadorKey + 1 > numJogadores)
+					cout << "Escolha invalida. Voce precisa escolher entre as opcoes da lista."  << endl;
+		
+				cout << "Escolha um jogador para matar" << endl;
+				killJogadorKey = listaJogadores[i].votar() - 1;
+			}	
 		}
+
 		else if(jobCode == "VIDENTE")
 		{
 			cout << "Escolha um jogador para ser investigado." << endl;
 			checkJobJogadorKey = listaJogadores[i].votar() - 1;
+			while ((checkJobJogadorKey == i) || (checkJobJogadorKey + 1 > numJogadores))
+			{
+				cin.clear(); // clear input buffer to restore cin to a usable state
+				cin.ignore(INT_MAX, '\n'); // ignore last input
+				cout << "Escolha invalida. Voce deve escolher entre os jogadores na lista exceto a si mesmo."  << endl;
+				cout << "Escolha um jogador para ser investigado." << endl;
+				checkJobJogadorKey = listaJogadores[i].votar() - 1;
+			}	
 			cout << "Jogador: " << listaJogadores[checkJobJogadorKey].getNome() << endl;
 			string jobCode = listaJogadores[checkJobJogadorKey].getPapel();
 			if(jobCode != "LOBISOMEM")
 			{
-				jobCode = "HUMAN";
+				jobCode = "HUMANO";
 			}
 			cout << "Papel: " << jobCode << endl;
 		}
+
 		else if(jobCode == "MEDICO")
 		{
 			cout << "Escolha um jogador para ser protegido." << endl;
 			saveJogadorKey = listaJogadores[i].votar() - 1;
+			while (saveJogadorKey + 1 > numJogadores)
+			{
+				cin.clear(); // clear input buffer to restore cin to a usable state
+				cin.ignore(INT_MAX, '\n'); // ignore last input
+				cout << "Escolha invalida. Voce deve escolher entre os jogadores na lista."  << endl;
+				cout << "Escolha um jogador para ser protegido." << endl;
+				saveJogadorKey = listaJogadores[i].votar() - 1;
+			}	
 		}
+
 		else if(jobCode == "CAMPONES")
 		{
-			cout << "Vote em alguém para não denunciar seu papel." << endl;
+			cout << "Vote em alguem para nao levantar suspeitas de seu papel." << endl;
 			listaJogadores[i].votar();
-			cout << "Seu voto não possui poder algum." << endl;
+			cout << "Seu voto nao possui poder algum." << endl;
 			cout << "Volte a dormir" << endl;
 		}
+
 		else
 		{
 			cout << "[ERROR] Papel";
 		}
-		cout << "Após confirmar pressione qualquer tecla" << endl;
+		cout << "Apos confirmar pressione qualquer tecla" << endl;
 		getch();
 	}
 	system("cls");
@@ -185,38 +224,48 @@ void Jogo::removeJogadorMorto(int deadJogadorKey)
 }
 void Jogo::checaFimDeJogo()
 {
-	int LOBISOMEMCnt = 0;
-	int humanCnt = 0;
+	int numLobisomens = 0;
+	int numHumanos = 0;
+
 	for(int i=0; i<numJogadores; i++)
 	{
 		if(listaJogadores[i].getPapel() == "LOBISOMEM")
 		{
-			LOBISOMEMCnt++;
+			numLobisomens++;
 		}
 		else
 		{
-			humanCnt++;
+			numHumanos++;
 		}
 	}
-	if(LOBISOMEMCnt == 0)
+
+	if(numLobisomens == 0)
 	{
-		cout << "Todos os assassinos estão mortos." << endl;
-		cout << "Vitória dos inocentes!" << endl;
+		cout << "Todos os lobisomens estao mortos." << endl;
+		cout << "Vitoria dos inocentes!" << endl;
 		gameOver = false;
 	}
-	else if(humanCnt <= 1)
+	
+	else if(numHumanos <= 1)
 	{
-		cout << "Apenas um inocente restou." << endl;
-		cout << "Vitória dos assassinos!" << endl;
+		if (numHumanos == 1)
+			cout << "Apenas um humano vivo." << endl;
+		else if (numHumanos == 0)
+			cout << "Todos os humanos morreram." << endl;
+
+		cout << "Vitoria dos lobisomens!" << endl;
 		gameOver = false;
 	}
+
 	if(!gameOver)
 	{
 		cout << "Sair do jogo." << endl;
 	}
+
 	cout << "Pressione qualquer tecla para continuar." << endl;
 	getch();
 }
+
 void Jogo::play()
 {
 	cout << "Iniciando o jogo.....";

@@ -29,6 +29,14 @@ int Jogador::votar()
 {
 	int key;
 	cin >> key;
+	while ((cin.fail()) || (key <= 0))
+    {
+		cin.clear(); // clear input buffer to restore cin to a usable state
+		cin.ignore(INT_MAX, '\n'); // ignore last input
+		cout << "Input invalido. Vote entre as opcoes apresentadas na lista, escrevendo o numero ao lado do nome do jogador escolhido."  << endl;
+		cout << "Realize sua escolha novamente. ";
+		cin >> key;
+    }
 	return key;
 }
 string Jogador::getNome()

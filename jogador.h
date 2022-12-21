@@ -1,25 +1,21 @@
-#ifndef JOGADORES
-#define JOGADORES
-
-#include <iostream>
-#include <iterator>
-#include <set>
+#ifndef JOGADOR_H
+#define JOGADOR_H
 #include <string>
-#include <exception>
 
-class Jogador {
-  private:
-    std::string _nome;
-    std::string _papel;
-    std::string _estado; //vivo ou morto
+class Jogador
+{
+	private:
+		std::string Papel;
+		std::string nome;
 
-  public:
-    std::string getNome();
-    void setNome(std::string nome);
-    std::string getPapel();
-    void setPapel(std::string papel);
-    std::string getEstado();
-    void setEstado(std::string estado);
+	public:
+		Jogador();
+		Jogador(std::string nome, std::string Papel);
+
+		void mostrarPapelJogador();
+
+		int votar();
+		std::string getNome();
+		std::string getPapel();
 };
-
 #endif

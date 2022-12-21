@@ -1,37 +1,41 @@
-#include <cmath>
-#include <exception>
-
+#include <iostream>
+#include <string>
+#include <conio.h>
 #include "jogador.h"
 
-void Jogador::setNome(std::string nome)
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+
+Jogador::Jogador() {}
+Jogador::Jogador(string nome, string Papel)
 {
-      _nome = nome;
-	return;
+	this->nome = nome;
+	this->Papel = Papel;
 }
 
-void Jogador::setPapel(std::string papel)
+void Jogador::mostrarPapelJogador()
 {
-      _papel = papel;
-	return;
+	cout << "Jogador: " << nome << endl;
+	cout << "Pressione qualquer tecla para revelar seu papel." << endl;
+	getch();
+	cout << "Seu papel eh: " << Papel << endl;
+	cout << "Pressione qualquer tecla para continuar" << endl;
+	getch();
+	system("cls");
 }
-
-void Jogador::setEstado(std::string estado)
+int Jogador::votar()
 {
-      _estado = estado;
-	return;
+	int key;
+	cin >> key;
+	return key;
 }
-
-std::string Jogador::getNome()
+string Jogador::getNome()
 {
-			return _nome;
+	return nome;
 }
-
-std::string Jogador::getPapel()
+string Jogador::getPapel()
 {
-			return _papel;
-}
-
-std::string Jogador::getEstado()
-{
-			return _estado;
+	return Papel;
 }

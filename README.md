@@ -1,5 +1,5 @@
-# TEMA: Jogo no estilo de Lobisomem(também bastante conhecido como Cidade dorme ou Máfia) 
-https://pt.wikipedia.org/wiki/Cidade_dorme 
+# TP PDS II: Jogo Lobisomem   
+   Jogo no estilo de Lobisomem(também bastante conhecido como Cidade dorme ou Máfia). https://pt.wikipedia.org/wiki/Cidade_dorme 
 
 Integrantes do grupo:  
 - Gabriel Vitor Antunes Carvalho;  

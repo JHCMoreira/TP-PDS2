@@ -6,7 +6,7 @@ Integrantes do grupo:
 - João Henrique Costa Moreira;  
 - João Victor Souza de Andrade;  
 
-**Como funciona o jogo**
+**FUNCIONAMENTO DO JOGO**  
 O jogo Lobisomem funciona da seguinte forma:
 -  Os jogadores são divididos entre 4 papéis diferentes:
    - **Médico** : Pode uma vez por noite proteger um jogador do ataque do lobisomem.
@@ -14,13 +14,13 @@ O jogo Lobisomem funciona da seguinte forma:
    - **Camponês** : Não possui nenhuma habilidade especial, deve apenas tentar sobreviver.
    - **Lobisomem** : Pode atacar um jogador por noite.
 
--  Toda rodada é dividida em duas fases: a noite e o dia:
+-  Toda rodada é dividida em duas fases: a noite e o dia.
    - **Noite**: Os jogadores podem realizar ações relacionadas aos seus papéis, porém não é permitido que eles se comuniquem entre si.
    - **Dia**:  É aberto um momento de discussão onde os jogadores tentam descobrir quem é o lobisomem. A partir dessa discurssão é realizada uma votação que determina qual jogador deve ser eliminado do jogo. Em caso de empate nos votos ninguém é eliminado.
 
 -  O objetivo dos humanos é eliminar todos os lobisomens.
 -  O objetivo dos lobisomens é eliminar todos os humanos.
--  O jogo termina no momento em que um dos grupos atinge seu objetivo.
+-  O jogo termina no momento em que um dos grupos atinge seu objetivo.  
 
 **USER STORIES:**
 -  Como jogador, quero que o jogo possa ser jogado em um único dispositivo, não necessitando de conexão com internet ou vários dispositivos com o mesmo jogo.  

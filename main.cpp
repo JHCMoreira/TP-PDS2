@@ -5,8 +5,7 @@ using std::cin;
 using std::cout;
 using std::string;
 
-//(APAGAR ATE O FINAL) O programafoi refatorado por completo
-//TODO: Corrigir erros quando insere caracteres invalidos;Corrigir alguns couts; MAKEFILE; Testes de unidade; Exceções.
+//TODO: MAKEFILE; Testes de unidade;
 int main()
 {
 	Config config;

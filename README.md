@@ -1,4 +1,4 @@
-**TEMA: Jogo no estilo de Lobisomem(também bastante conhecido como Cidade dorme ou Máfia)**
+# TEMA: Jogo no estilo de Lobisomem(também bastante conhecido como Cidade dorme ou Máfia) 
 https://pt.wikipedia.org/wiki/Cidade_dorme 
 
 Integrantes do grupo:  
@@ -6,7 +6,7 @@ Integrantes do grupo:
 - João Henrique Costa Moreira;  
 - João Victor Souza de Andrade;  
 
-**FUNCIONAMENTO DO JOGO**  
+## FUNCIONAMENTO DO JOGO:  
 O jogo Lobisomem funciona da seguinte forma:
 -  Os jogadores são divididos entre 4 papéis diferentes:
    - **Médico** : Pode uma vez por noite proteger um jogador do ataque do lobisomem.
@@ -22,7 +22,7 @@ O jogo Lobisomem funciona da seguinte forma:
 -  O objetivo dos lobisomens é eliminar todos os humanos.
 -  O jogo termina no momento em que um dos grupos atinge seu objetivo.  
 
-**USER STORIES:**
+## USER STORIES:  
 -  Como jogador, quero que o jogo possa ser jogado em um único dispositivo, não necessitando de conexão com internet ou vários dispositivos com o mesmo jogo.  
    - **Critérios de aceite:**
      - O jogo funciona sem necessidade de outros dispositivos.  

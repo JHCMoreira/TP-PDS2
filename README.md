@@ -6,7 +6,13 @@ Integrantes do grupo:
 - João Henrique Costa Moreira;  
 - João Victor Souza de Andrade;  
 
-## FUNCIONAMENTO DO JOGO:  
+## COMO COMPILAR E RODAR O JOGO  
+Para compilar o jogo basta baixar os arquivos disponibilizados no repositório e rodar via terminal o comando: "**make jogo**". A partir disso será gerado um executável **Jogo.exe** e para jogar basta executá-lo.  
+**Observação importante:** O único sistema operacional em que o jogo foi testado foi no Windows 10, então talvez aja algumas incompatibilidades com outros sistemas operacionais como Linux ou Mac. Por conta disso é fornecido no repositório o executável (**Lobisomem.exe**) necessário para rodar o jogo sem necessidade de compilação.  
+
+## COMO VER OS RESULTADOS DOS TESTES DE UNIDADE  
+De forma semelhante à compilação, para analisar os testes de unidade basta executar via terminal o comando: "**make tests**".  
+## FUNCIONAMENTO DO JOGO  
 O jogo Lobisomem funciona da seguinte forma:
 -  Os jogadores são divididos entre 4 papéis diferentes:
    - **Médico** : Pode uma vez por noite proteger um jogador do ataque do lobisomem.
@@ -21,8 +27,7 @@ O jogo Lobisomem funciona da seguinte forma:
 -  O objetivo dos humanos é eliminar todos os lobisomens.
 -  O objetivo dos lobisomens é eliminar todos os humanos.
 -  O jogo termina no momento em que um dos grupos atinge seu objetivo.  
-
-## USER STORIES:  
+## USER STORIES  
 -  Como jogador, quero que o jogo possa ser jogado em um único dispositivo, não necessitando de conexão com internet ou vários dispositivos com o mesmo jogo.  
    - **Critérios de aceite:**
      - O jogo funciona sem necessidade de outros dispositivos.  

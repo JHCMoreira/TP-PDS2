@@ -6,12 +6,13 @@ Integrantes do grupo:
 - João Henrique Costa Moreira;  
 - João Victor Souza de Andrade;  
 
+## MENSAGEM IMPORTANTE!
+Durante o desenvolvimento do programa foram encontrados diversos erros que aparentemente afetaram até mesmo o funcionamento da máquina. Os erros foram conversados com o monitor e nem dessa forma foi possível corrigí-los. Por conta disso o makefile não possui a parte dos testes. Além disso, a forma como o jogo foi feita faz com que poucas funções tenham qualquer retorno, ele apenas navega de uma função a outra de acordo com o andamento do jogo. Por conta disso não foi possível incluir muitas possibilidades de testes.  Peço que esses problemas sejam relevados na avaliação do trabalho visto que mesmo com ajuda não foi possível corrigir esses erros.
+
 ## COMO COMPILAR E RODAR O JOGO  
 Para compilar o jogo basta baixar os arquivos disponibilizados no repositório e rodar via terminal o comando: "**make jogo**". A partir disso será gerado um executável **Jogo.exe** e para jogar basta executá-lo.  
-**Observação importante:** O único sistema operacional em que o jogo foi testado foi no Windows 10, então talvez aja algumas incompatibilidades com outros sistemas operacionais como Linux ou Mac. Por conta disso é fornecido no repositório o executável (**Lobisomem.exe**) necessário para rodar o jogo sem necessidade de compilação.  
+**Observação importante:** O único sistema operacional em que o jogo foi testado foi no Windows 10 (foi testado em mais de uma máquina e obteve sucesso na compilação), então talvez aja algumas incompatibilidades com outros sistemas operacionais como Linux ou Mac. Por conta disso é fornecido no repositório o executável (**Lobisomem.exe**) necessário para rodar o jogo sem necessidade de compilação.  
 
-## COMO VER OS RESULTADOS DOS TESTES DE UNIDADE  
-De forma semelhante à compilação, para analisar os testes de unidade basta executar via terminal o comando: "**make tests**". **Observação:** A forma como o jogo foi feita faz com que poucas funções tenham qualquer retorno, ele apenas navega de uma função a outra de acordo com o andamento do jogo. Por conta disso não foi possível incluir muitas possibilidades de testes.  
 ## FUNCIONAMENTO DO JOGO  
 O jogo Lobisomem funciona da seguinte forma:
 -  Os jogadores são divididos entre 4 papéis diferentes:

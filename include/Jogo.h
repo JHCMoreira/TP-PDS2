@@ -6,8 +6,11 @@
 class Jogo
 {
 private:
+	//Declara lista de jogadores
 	Jogador *listaJogadores;
+	//Numero de jogadores
 	int numJogadores;
+	//Variável para determinar se o jogo chegou ou não ao fim
 	bool gameOver;
 
 	void Dia();

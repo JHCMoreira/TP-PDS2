@@ -11,7 +11,7 @@ Para compilar o jogo basta baixar os arquivos disponibilizados no repositório e
 **Observação importante:** O único sistema operacional em que o jogo foi testado foi no Windows 10, então talvez aja algumas incompatibilidades com outros sistemas operacionais como Linux ou Mac. Por conta disso é fornecido no repositório o executável (**Lobisomem.exe**) necessário para rodar o jogo sem necessidade de compilação.  
 
 ## COMO VER OS RESULTADOS DOS TESTES DE UNIDADE  
-De forma semelhante à compilação, para analisar os testes de unidade basta executar via terminal o comando: "**make tests**".  
+De forma semelhante à compilação, para analisar os testes de unidade basta executar via terminal o comando: "**make tests**". **Observação:** A forma como o jogo foi feita faz com que poucas funções tenham qualquer retorno, ele apenas navega de uma função a outra de acordo com o andamento do jogo. Por conta disso não foi possível incluir muitas possibilidades de testes.  
 ## FUNCIONAMENTO DO JOGO  
 O jogo Lobisomem funciona da seguinte forma:
 -  Os jogadores são divididos entre 4 papéis diferentes:
@@ -27,6 +27,120 @@ O jogo Lobisomem funciona da seguinte forma:
 -  O objetivo dos humanos é eliminar todos os lobisomens.
 -  O objetivo dos lobisomens é eliminar todos os humanos.
 -  O jogo termina no momento em que um dos grupos atinge seu objetivo.  
+
+## CLASSES DO PROGRAMA  
+### Config:  
+Responsável por armazenar as informações essenciais para o jogo, como o número de jogadores e papéis e a organização dos mesmos em listas.
+#### Funções:  
+##### addUsuario:  
+Adiciona um usuario ao jogo.  
+Recebe: string nome
+Retorna: Nada
+##### embaralhaArr:  
+Embaralha os papéis para que depois sejam sorteados entre os jogadores.  
+Recebe: string *arr, int size
+Retorna: Nada
+##### Config:  
+Construtor da classe config, definindo o número de papeis de quais papéis existem.  
+Recebe: Nada
+Retorna: Nada
+##### setListaUsuarios:  
+Determina quais serão todos os jogadores organizando-os em uma lista.  
+Recebe: Nada
+Retorna: Nada
+##### setListaPapeis:  
+Determina quais serão os papéis de todos os jogadores organizando-os em uma lista.  
+Recebe: Nada
+Retorna: Nada
+##### setListaJogadores:  
+Organiza os papéis para cada jogador, aleatorizando qual jogador fica com cada papel a cada jogo.  
+Recebe: Nada
+Retorna: Nada
+##### mostraPapeisJogadores:  
+Como o nome indica, mostra o papel de cada jogador.  
+Recebe: Nada
+Retorna: Nada
+##### run:  
+Função para rodar o jogo inicialmente. Ela possúi o menu inicial onde o jogador pode escolher entre configurar o jogo, iniciá-lo ou sair. O jogador apenas consegue iniciar o jogo quando o mesmo está configurado.  
+Recebe: Nada
+Retorna: Nada
+##### setJogo:  
+Configura o jogo, definindo os jogadores e seus papéis.  
+Recebe: Nada
+Retorna: Nada
+##### iniciaJogo:  
+Finaliza as configurações do jogo e inicia o mesmo.  
+Recebe: Nada
+Retorna: Nada
+
+### Jogador:  
+Responsável por armazenar as informações sobre cada jogador (nome e papel).
+#### Funções:  
+##### Jogador:  
+Construtor vazio para jogador.    
+Recebe: Nada
+Retorna: Nada
+##### Jogador:  
+Construtor para um novo jogador fornecendo seu nome e papel.  
+Recebe: string nome, string Papel
+Retorna: Nada
+##### mostrarPapelJogador:  
+Mostra o nome do jogador e o papel destinado a ele.  
+Recebe: Nada
+Retorna: Nada
+##### votar:  
+Função utilizada em todas as rodadas como sistema de escolha e votação. Durante o dia é utilizada para a votação geral. Durante a noite é utilizada para que os jogadores realizem as ações relacionadas a seu papel.  
+Recebe: Nada
+Retorna:  
+##### getNome:  
+Getter para o nome do jogador.  
+Recebe: Nada
+Retorna: string nome  
+##### getPapel:  
+Getter para o papel do jogador.  
+Recebe: Nada
+Retorna: string Papel  
+
+### Jogo:  
+Responsável por armazenar as informações essenciais para o jogo, como o número de jogadores e papéis e a organização dos mesmos em listas.
+#### Funções:  
+##### Dia:  
+Função que agrupa os eventos que acontecem durante o dia no jogo, ou seja a votação geral.  
+Recebe: Nada
+Retorna: Nada
+##### Noite:  
+Função que agrupa os eventos que acontecem durante a noite no jogo, ou seja a ação de cada jogador de acordo com seu papel.  
+Recebe: Nada
+Retorna: Nada
+##### mostraListaVotos:  
+Mostra a lista contendo as opções de escolha em todas as rodadas.  
+Recebe: Nada
+Retorna: Nada
+##### mostraResultadoVotos:  
+Mostra se algum jogador foi eliminado tanto na votação do dia quanto no período da noite por conta do lobisomem.  
+Recebe: int deadJogadorKey
+Retorna: Nada
+##### removeJogadorMorto:  
+Elimina o jogador morto do jogo.  
+Recebe: int deadJogadorKey
+Retorna: Nada
+##### checaFimDeJogo:  
+Detecta se o jogo chegou ao fim. Os critérios para isso são: Todos os lobisomens estão mortos. Garantindo vitória dos humanos; Apenas um ou nenhum humano restante. Garantindo vitória dos lobisomens.  
+Recebe: Nada
+Retorna: Nada
+##### Jogo:  
+Construtor vazio para jogo.  
+Recebe: Nada
+Retorna: Nada
+##### Jogo:  
+Construtor para o jogo a partir da lista e numero de jogadores.  
+Recebe: Jogador *listaJogadores, int numJogadores
+Retorna: Nada
+##### play:  
+Função que dá início ao jogo.  
+Recebe: Nada
+Retorna: Nada
+
 ## USER STORIES  
 -  Como jogador, quero que o jogo possa ser jogado em um único dispositivo, não necessitando de conexão com internet ou vários dispositivos com o mesmo jogo.  
    - **Critérios de aceite:**

@@ -5,6 +5,7 @@ TARGET = Jogo.exe
 BUILD_DIR = ./build
 SRC_DIR = ./src
 PROGRAM_DIR = ./program
+TST_DIR := ./tests
 INCLUDE_DIR = ./include
 
 

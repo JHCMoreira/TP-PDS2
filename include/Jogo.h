@@ -3,25 +3,25 @@
 #include <string>
 #include "Jogador.h"
 
-class Jogo 
+class Jogo
 {
-	private:
-		Jogador *listaJogadores;
-		int numJogadores;
-		bool gameOver;
+private:
+	Jogador *listaJogadores;
+	int numJogadores;
+	bool gameOver;
 
-		void Dia();
-		void Noite();
+	void Dia();
+	void Noite();
 
-		void mostraListaVotos();
-		void mostraResultadoVotos(int deadJogadorKey);
-		void removeJogadorMorto(int deadJogadorKey);
-		void checaFimDeJogo();
-	public:
-		Jogo();
-		Jogo(Jogador *listaJogadores, int numJogadores);
+	void mostraListaVotos();
+	void mostraResultadoVotos(int deadJogadorKey);
+	void removeJogadorMorto(int deadJogadorKey);
+	void checaFimDeJogo();
 
-		void play();
+public:
+	Jogo();
+	Jogo(Jogador *listaJogadores, int numJogadores);
 
+	void play();
 };
 #endif

@@ -4,18 +4,18 @@
 
 class Jogador
 {
-	private:
-		std::string Papel;
-		std::string nome;
+private:
+	std::string Papel;
+	std::string nome;
 
-	public:
-		Jogador();
-		Jogador(std::string nome, std::string Papel);
+public:
+	Jogador();
+	Jogador(std::string nome, std::string Papel);
 
-		void mostrarPapelJogador();
+	void mostrarPapelJogador();
 
-		int votar();
-		std::string getNome();
-		std::string getPapel();
+	int votar();
+	std::string getNome();
+	std::string getPapel();
 };
 #endif

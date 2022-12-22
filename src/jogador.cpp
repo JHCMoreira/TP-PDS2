@@ -9,6 +9,7 @@ using std::endl;
 using std::string;
 
 Jogador::Jogador() {}
+
 Jogador::Jogador(string nome, string Papel)
 {
 	this->nome = nome;
@@ -25,20 +26,22 @@ void Jogador::mostrarPapelJogador()
 	getch();
 	system("cls");
 }
+
 int Jogador::votar()
 {
 	int key;
 	cin >> key;
 	while ((cin.fail()) || (key <= 0))
-    {
-		cin.clear(); // clear input buffer to restore cin to a usable state
-		cin.ignore(INT_MAX, '\n'); // ignore last input
-		cout << "Input invalido. Vote entre as opcoes apresentadas na lista, escrevendo o numero ao lado do nome do jogador escolhido."  << endl;
+	{
+		cin.clear();			   // clear input buffer to restore cin to a usable state
+		cin.ignore(2147483647, '\n'); // ignore last input
+		cout << "Input invalido. Vote entre as opcoes apresentadas na lista, escrevendo o numero ao lado do nome do jogador escolhido." << endl;
 		cout << "Realize sua escolha novamente. ";
 		cin >> key;
-    }
+	}
 	return key;
 }
+
 string Jogador::getNome()
 {
 	return nome;
